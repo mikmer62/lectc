@@ -29,7 +29,7 @@ SSD1306AsciiAvrI2c oled;
 
 #define USE_SERIAL
 
-uint8_t mem[32];  // Buffer de 256 bits (32 octets)
+byte mem[32];  // Buffer de 256 bits (32 octets)
 
 // ========== Configuration Arduino ==========
 #define PIN_RST 2
@@ -120,7 +120,7 @@ bool getContent() {
   resetAddress();
 
   for (int i = 0; i < 32; i++) {
-    uint8_t octet = 0;
+    byte octet = 0;
     for (int b = 7; b >= 0; b--) {  // MSB first
       pulseClock();
       if (digitalRead(PIN_IO)) {
@@ -132,12 +132,12 @@ bool getContent() {
 
   // Dump content in serial monitor
 #ifdef USE_SERIAL
-  for (int i = 0; i < 32; i++) {
-    if (mem[i] < 16) { Serial.print("0"); }
+  for (byte i = 0; i < 32; i++) {
+    if (mem[i] < 0x10) Serial.print('0');
     Serial.print(mem[i], HEX);
-    Serial.print(" ");
+    Serial.print(' ');
   }
-  Serial.println("");
+  Serial.println();
 #endif
 
   return true;
