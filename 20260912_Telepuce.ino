@@ -8,15 +8,25 @@
 */
 
 /* Cablage
-Cartes de test ISO
-FIC2 conn       Breadboard        Arduino
-PIN1=VCC          Rail +                         fils rouges
-PIN2=RST         b22  e22           D2           fils blancs
-PIN3=CLK         b19  e19           D3           fils jaunes
-PIN5=VSS          Rail -
-PIN7=I/O         b25  e25           D4           fils verts
-DETECT1          b16  e16           D5           fils bleus
-DETECT2           Rail -
+Contacts puce numérotés ISO
+1 \     / 5
+2 --\ /-- 6
+3 --/ \-- 7
+4 /     \ 8     
+
+Cnx puce     Breadboard        Arduino
+    1          Rail +                      fil rouges
+    2        b22  e22           D2         fils blancs
+    3        b19  e19           D3         fils jaunes 
+    4        b14  e14           D4         fils noirs
+
+    5          Rail -
+    6          Rail +
+    7         b25  e25          D7           fils verts
+    8       Non utilisé
+
+DETECT1       b16  e16          D9           fils bleus
+DETECT2        Rail -
 */
 
 #include <Adafruit_SSD1306.h>
