@@ -34,8 +34,8 @@ byte mem[32];  // Buffer de 256 bits (32 octets)
 // ========== Configuration Arduino ==========
 #define PIN_RST 2
 #define PIN_CLK 3
-#define PIN_IO 4
-#define PIN_DETECT 5
+#define PIN_IO 7
+#define PIN_DETECT 9
 
 #define DELAY1 50
 #define DELAY2 10
